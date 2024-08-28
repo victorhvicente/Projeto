@@ -1,0 +1,16 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:lightgray;
+}
+
+h1 {
+    background: #fff;
+    padding: 12px;
+    text-transform: uppercase;
+    border: 1px solid black;
+    border-radius: 10px;
+}
