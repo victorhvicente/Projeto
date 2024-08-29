@@ -11,9 +11,9 @@ body {
 h1 {
     text-align: center;
     width: 300px;
-    background: grey;
+    background: lightgray;
     border: 1px solid black;
     padding: 20px 5px;
-    color: #fff;
+    color: black;
 }
 
