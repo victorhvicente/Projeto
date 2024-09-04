@@ -1,0 +1,101 @@
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+form input {
+    width: calc(100% - 22px); /* Ajusta o width para considerar padding e border */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+
+div {
+    text-align: center;
+    margin: 20px auto;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+    transition: background-color 0.3s;
+}
+
+button#btnSim {
+    background-color: #28a745;
+    color: #fff;
+}
+
+button#btnSim:hover {
+    background-color: #218838;
+}
+
+button#btnNao {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+button#btnNao:hover {
+    background-color: #c82333;
+}
+
+button#btnLimpar {
+    background-color: #007bff;
+    color: #fff;
+}
+
+button#btnLimpar:hover {
+    background-color: #0056b3;
+}
+
