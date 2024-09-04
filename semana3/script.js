@@ -11,6 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Certifique-se de que estamos adicionando um objeto com as propriedades 'nome' e 'idade'
         myArray.push({nome: nomeInput.value, idade: idadeInput.value});
+        
+        // Ordena o array em ordem alfabética pelo nome
+        myArray.sort((a, b) => a.nome.localeCompare(b.nome));
 
         // Limpa os campos do input no HTML
         nomeInput.value = "";
