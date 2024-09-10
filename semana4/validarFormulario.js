@@ -21,6 +21,7 @@ function validarNome() {
     if (!invalido.test(nome) || nome.trim() === '') {
         errorElement.textContent = "Nome Inválido";
         errorElement.style.color = 'red'; // Define a cor do texto para vermelho
+        errorElement.style.marginTop = '10px';
         return false;
     } else {
         errorElement.textContent = ""; //remove a mensagem de erro após o nome ser válido
