@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+</head>
+<body>
+    <form>
+        <h1>Formulário de Cadastro: </h1>
+        <div class="group-name">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" placeholder="Digite seu nome completo" required >
+        </div>
+        <div class="group-email-date">
+            <div class="group-email">
+                <label for="email">Email:</label>
+                <input type="text" id="email" placeholder="abc123@.com" required >
+            </div>
+            <div class="group-date">
+                <label for="dataNasc">Data Nascimento</label>
+                <input type="date" id="dataNasc" required>
+            </div>
+        </div>
+        <div class="group-telFixo-telCel-opcao">
+            <div class="group-telFixo">
+                <label for="telFixo">Telefone Fixo:</label>
+                <input type="tel" id="telFixo" placeholder="(99)9999-9999" required >
+            </div>
+            <div class="group-telCel">
+                <label for="telCel">Telefone Celular:</label>
+                <input type="tel" id="telCel" placeholder="(99)9999-9999" required >
+            </div>
+            <div class="group-opcao">
+                <input type="radio" id="professor" value="professor">
+                <label for="professor">Professor</label><br>
+                <input type="radio" id="aluno" value="aluno">
+                <label for="aluno">Aluno</label><br>
+            </div>
+
+        </div>
+    </form>
+</body>
+</html>
