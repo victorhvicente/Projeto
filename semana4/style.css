@@ -1,0 +1,177 @@
+body, html {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+form {
+    width: 60%;
+    border: 1px solid black;
+    padding: 30px;
+}
+
+h1, label{
+    font-family: Helvetica;
+}
+
+h1 {
+    font-size: 26px;
+    color: #000;
+}
+
+label {
+    font-size: 12px;
+    color: #222;
+}
+
+.group-name {
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0px;
+}
+
+.group-email-date {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0px;
+}
+
+.group-email-date .group-email {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.group-email-date .group-email input {
+   width: 95%;
+}
+
+.group-email-date .group-date {
+    display: flex;
+    flex-direction: column;
+}
+
+.group-email-date .group-date input {
+    width: 150px;
+    height: 25px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.group-telFixo-telCel-opcao {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0px;
+}
+
+.group-telFixo-telCel-opcao .group-telFixo {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.group-telFixo-telCel-opcao .group-telFixo input {
+    width: 100%;
+}
+
+.group-telFixo-telCel-opcao .group-telCel {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.group-telFixo-telCel-opcao .group-telCel input {
+    width: 100%;
+}
+
+.group-telFixo-telCel-opcao .group-opcao {
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
+}
+
+.group-telFixo-telCel-opcao .group-opcao .opc-professor {
+    display: flex;
+    flex-direction: row;
+}
+
+.group-telFixo-telCel-opcao .group-opcao .opc-aluno {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+}
+
+.group-matricula {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 30px 0px;
+}
+
+.group-matricula .matricula {
+    display: flex;
+    flex-direction: column;
+}
+
+.group-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+button {
+    padding: 4px 20px;
+    margin: 0px 15px;
+}
+
+input[type="text"], 
+input[type="tel"], 
+input[type="number"],
+input[type="email"] {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    margin-top: 12px;
+    font-family: Helvetica;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+input[type="date"] {
+    border: none;
+    border: 1px solid #aaa;
+}
+
+input:focus {
+    outline: none; /* Remove a borda padrão do navegador */
+}
+
+/* Para remover as setinhas  (spinners) dos campos da matrícula*/
+/* Para Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    form {
+        width: 90%;
+        padding: 20px;
+    }
+}
+
+

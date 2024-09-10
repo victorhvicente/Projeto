@@ -3,42 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
     <title>Formulário</title>
 </head>
 <body>
-    <form>
-        <h1>Formulário de Cadastro: </h1>
-        <div class="group-name">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" placeholder="Digite seu nome completo" required >
-        </div>
-        <div class="group-email-date">
-            <div class="group-email">
-                <label for="email">Email:</label>
-                <input type="text" id="email" placeholder="abc123@.com" required >
+    <div class="formulario">
+        <form>
+            <h1>Formulário de Cadastro: </h1>
+            <div class="group-name">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" placeholder="Digite seu nome completo" required >
             </div>
-            <div class="group-date">
-                <label for="dataNasc">Data Nascimento</label>
-                <input type="date" id="dataNasc" required>
+            <div class="group-email-date">
+                <div class="group-email">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="abc123@.com" required >
+                </div>
+                <div class="group-date">
+                    <label for="dataNasc">Data Nascimento:</label>
+                    <input type="date" id="dataNasc" required>
+                </div>
             </div>
-        </div>
-        <div class="group-telFixo-telCel-opcao">
-            <div class="group-telFixo">
-                <label for="telFixo">Telefone Fixo:</label>
-                <input type="tel" id="telFixo" placeholder="(99)9999-9999" required >
+            <div class="group-telFixo-telCel-opcao">
+                <div class="group-telFixo">
+                    <label for="telFixo">Telefone Fixo:</label>
+                    <input type="tel" id="telFixo" placeholder="(99)9999-9999" required >
+                </div>
+                <div class="group-telCel">
+                    <label for="telCel">Telefone Celular:</label>
+                    <input type="tel" id="telCel" placeholder="(99)9999-9999" required >
+                </div>
+                <div class="group-opcao">
+                    <div class="opc-professor">
+                        <input type="radio" id="professor" name="tipo_usuario" value="professor">
+                        <label for="professor">Professor</label><br>
+                    </div>
+                    <div class="opc-aluno">
+                        <input type="radio" id="aluno" name="tipo_usuario" value="aluno">
+                        <label for="aluno">Aluno</label><br>
+                    </div>
+                </div>
             </div>
-            <div class="group-telCel">
-                <label for="telCel">Telefone Celular:</label>
-                <input type="tel" id="telCel" placeholder="(99)9999-9999" required >
+            <div class="new-opcao">
+                
             </div>
-            <div class="group-opcao">
-                <input type="radio" id="professor" value="professor">
-                <label for="professor">Professor</label><br>
-                <input type="radio" id="aluno" value="aluno">
-                <label for="aluno">Aluno</label><br>
+            <div class="group-matricula">
+                <div class="matricula">
+                    <label for="matricula">Matricula:</label>
+                    <input type="number" id="matricula" placeholder="Digite sua Matrícula">
+                </div>
             </div>
 
-        </div>
-    </form>
+            <div class="group-button">
+                <button type="submit">Enviar</button>
+                <button type="reset">Redefinir</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
