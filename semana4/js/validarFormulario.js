@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('professor').addEventListener('click', professor);
 
+    document.getElementById('aluno').addEventListener('click', aluno);
+
     document.getElementById('submit').addEventListener('click', (event) => {
         if(validarFormulario()){
             console.log("Tudo OK");
@@ -26,12 +28,22 @@ function professor() {
     newElement.innerHTML = `
     <div class="group-area">
         <label for="area">Área:</label>
-        <input type="text" id="area" placeholder="Digite sua área de atuação">
+        <input type="text" id="area" placeholder="Digite sua área de atuação" required>
     </div>
     <div class="group-lattes">
         <label for="lattes">Lattes:</label>
-        <input type="text" id="lattes" placeholder="Digite aqui o endereço para seu lattes">
+        <input type="text" id="lattes" placeholder="Digite aqui o endereço para seu lattes" required>
     </div>`;
+}
+
+function aluno(){
+
+    const newElement = document.getElementById('new-opcao');
+    newElement.innerHTML = `
+        <div class="group-curso">
+            <label for="curso">Curso:</label>
+            <input type="text" id="curso" placeholder="Digite seu curso">
+        </div>`;
 }
 
 function validarNome() {
@@ -90,70 +102,44 @@ function validarDataNasc(){
 function validarTelFixo() {
     const telFixoInput = document.getElementById('telFixo');
     const telFixo = telFixoInput.value;
-    const regexNaoNumeros = /\D/; // Regex para encontrar qualquer coisa que não seja número
     const errorElement = document.getElementById('error-telFixo');
-
-    // Verifica se há caracteres não numéricos
-    if (regexNaoNumeros.test(telFixo)) {
-      errorElement.textContent = "É válido somente números";
-      errorElement.style.color = "red";
-      errorElement.style.marginTop = "10px";
-      return false;
-    } 
-
-    // Remove todos os caracteres não numéricos
-    let numeros = telFixo.replace(/\D/g, "");
-
-    // Limita a 10 dígitos se for maior
-    if (numeros.length > 10) {
-      numeros = numeros.substring(0, 10);
-    }
-
-    // Aplica a formatação
-    if (numeros.length === 10) {
-      telFixoInput.value = numeros.replace(/^(\d{2})(\d{4})(\d{4})$/, '($1) $2-$3');
-    } 
-    else if (numeros.length >= 2) {
-      telFixoInput.value = numeros.replace(/^(\d{2})(\d{0,4})/, '($1) $2');
-    } 
-    else {
-      telFixoInput.value = numeros; // Caso menos de 2 dígitos, mantém apenas números
-    }
-
-    errorElement.textContent = ""; // Limpa a mensagem de erro, se válido
-    return true;
-}
-
-function validarTelCel(){
-    const telCelInput = document.getElementById('telCel');
-    const telCel = telCelInput.value;
-    const regexTelCel = /\D/;
-    const errorElement = document.getElementById('error-telCel');
-
-    if(regexTelCel.test(telCel)){
-        errorElement.textContent = "É válido somente números";
+    
+    // Remove caracteres não numéricos
+    const numeros = telFixo.replace(/\D/g, "");
+    
+    // Verifica se o número tem 10 dígitos
+    if (numeros.length !== 10) {
+        errorElement.textContent = "O telefone fixo deve ter 10 dígitos.";
         errorElement.style.color = "red";
         errorElement.style.marginTop = "10px";
         return false;
     }
-
-    let numeros = telCel.replace(/\D/g, "");
     
-    if(numeros.length > 11){
-       numeros =  numeros.substring(0, 11);
-    }
+    // Formata o telefone
+    telFixoInput.value = numeros.replace(/^(\d{2})(\d{4})(\d{4})$/, '($1) $2-$3');
+    errorElement.textContent = ""; // Limpa a mensagem de erro
+    return true;
+}
 
-    if(numeros.length === 11){
-        telCelInput.value = numeros.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+function validarTelCel() {
+    const telCelInput = document.getElementById('telCel');
+    const telCel = telCelInput.value;
+    const errorElement = document.getElementById('error-telCel');
+    
+    // Remove caracteres não numéricos
+    const numeros = telCel.replace(/\D/g, "");
+    
+    // Verifica se o número tem 11 dígitos
+    if (numeros.length !== 11) {
+        errorElement.textContent = "O telefone celular deve ter 11 dígitos.";
+        errorElement.style.color = "red";
+        errorElement.style.marginTop = "10px";
+        return false;
     }
-    else if(numeros.length >= 2){
-        telCelInput.value = numeros.replace(/^(\d{2})(\d{0,5})$/, '($1) $2');
-    }
-    else {
-        telCelInput.value = numeros;
-    }
-
-    errorElement.textContent = ""; // Limpa a mensagem de erro, se válido
+    
+    // Formata o telefone
+    telCelInput.value = numeros.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+    errorElement.textContent = ""; // Limpa a mensagem de erro
     return true;
 }
 

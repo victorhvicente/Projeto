@@ -125,12 +125,7 @@ label {
 .group-matricula .matricula {
     display: flex;
     flex-direction: column;
-}
-
-.group-button {
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
+    margin-right: 15px;
 }
 
 .new-opcao {
@@ -141,12 +136,25 @@ label {
 .new-opcao .group-area {
     display: flex;
     flex-direction: column;
+    width: 80%;
 }
 
 .new-opcao .group-lattes {
     display: flex;
     flex-direction: column;
     margin-top: 12px;
+}
+
+.new-opcao .group-curso {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.group-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
 }
 
 button {
