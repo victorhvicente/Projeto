@@ -139,7 +139,6 @@ button {
 }
 
 input[type="text"], 
-input[type="tel"], 
 input[type="number"],
 input[type="email"] {
     border: none;

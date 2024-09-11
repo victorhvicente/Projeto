@@ -25,16 +25,18 @@
                 <div class="group-date">
                     <label for="dataNasc">Data Nascimento:</label>
                     <input type="date" id="dataNasc" required>
+                    <span id="error-date"></span>
                 </div>
             </div>
             <div class="group-telFixo-telCel-opcao">
                 <div class="group-telFixo">
                     <label for="telFixo">Telefone Fixo:</label>
-                    <input type="tel" id="telFixo" placeholder="(99)9999-9999" required >
+                    <input type="text" id="telFixo" placeholder="(99)9999-9999" maxlength="14" required >
+                    <span id="error-telFixo"></span>
                 </div>
                 <div class="group-telCel">
                     <label for="telCel">Telefone Celular:</label>
-                    <input type="tel" id="telCel" placeholder="(99)9999-9999" required >
+                    <input type="text" id="telCel" placeholder="(99)9999-9999" maxlength="14" required >
                 </div>
                 <div class="group-opcao">
                     <div class="opc-professor">
