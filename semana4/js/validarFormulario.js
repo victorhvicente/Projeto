@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
    
     document.getElementById('nome').addEventListener('blur', validarNome);
+    document.getElementById('email').addEventListener('blur', validarEmail);
 });
 
 function validarNome() {
@@ -29,10 +30,28 @@ function validarNome() {
     }
 }
 
+function validarEmail(){
+    const email = document.getElementById('email').value;
+    const invalido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const errorElement = document.getElementById('error-email');
+
+    if(!invalido.test(email)) {
+        errorElement.textContent = "Email Inválido";
+        errorElement.style.color = "red";
+        errorElement.style.marginTop = "10px";
+        return false
+    }
+    else {
+        errorElement.innerHTML = "";
+        return true;
+    }
+}
+
 
 function validarFormulario() {
     const validacoes = [
         validarNome(),
+        validarEmail(),
     ];
 
     return validacoes.every(Boolean); // Somente submeter se todos forem válidos
