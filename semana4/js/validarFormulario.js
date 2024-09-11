@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('nome').addEventListener('blur', validarNome);
     document.getElementById('email').addEventListener('blur', validarEmail);
     document.getElementById('dataNasc').addEventListener('blur', validarDataNasc);
-    document.getElementById('telFixo').addEventListener('blur', validarTelFixo);
+    document.getElementById('telFixo').addEventListener('input', validarTelFixo);
 });
 
 function validarNome() {
@@ -71,35 +71,46 @@ function validarDataNasc(){
 
 function validarTelFixo() {
     const telFixoInput = document.getElementById('telFixo');
-    const telFixo = telFixoInput.value;
-    const regexTelFixo = /^\d*$/; // Regex para permitir somente números
-    const errorElement = document.getElementById('error-telFixo');
+    let telFixo = telFixoInput.value;
+    const regexNumeros = /^\d*$/; // Regex para permitir somente números
 
-    // Validação: Verifica se o valor contém somente números
-    if (!regexTelFixo.test(telFixo)) {
+    // Remove todos os caracteres não numéricos
+    let numeros = telFixo.replace(/\D/g, "");
+
+    // Verifica se a string numérica é válida
+    if (numeros.length >= 10) {
+      // Limita a 11 dígitos se for maior
+      numeros = numeros.substring(0, 10);
+    }
+
+    // Atualiza a formatação
+    if (numeros.length >= 10) {
+      telFixo = numeros.replace(/^(\d{2})(\d{4})(\d{4})$/, '($1) $2-$3');
+    } 
+    else if (numeros.length >= 2) {
+      telFixo = numeros.replace(/^(\d{2})(\d{0,4})/, '($1) $2');
+    } 
+    else {
+      telFixo = numeros; // Caso menos de 2 dígitos, mantém apenas números
+    }
+
+    // Atualiza o valor do input com a formatação
+    telFixoInput.value = telFixo;
+
+    // Mensagem de erro para caracteres não numéricos
+    const errorElement = document.getElementById('error-telFixo');
+    if (!regexNumeros.test(telFixo.replace(/\D/g, ''))) {
       errorElement.textContent = "É válido somente números";
       errorElement.style.color = "red";
       errorElement.style.marginTop = "10px";
       return false;
-    } else {
-      // Remove caracteres não numéricos e limita a 11 dígitos
-      let limparValor = telFixo.replace(/\D/g, "").substring(0, 11);
-
-      // Aplica a formatação
-      if (limparValor.length >= 11) {
-        limparValor = limparValor.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
-      } else if (limparValor.length >= 2) {
-        limparValor = limparValor.replace(/^(\d{2})(\d{0,5})/, '($1) $2');
-      }
-
-      // Atualiza o valor do input com a formatação
-      telFixoInput.value = limparValor;
-
-      // Limpa a mensagem de erro se a validação for bem-sucedida
-      errorElement.textContent = "";
+    } 
+    else {
+      errorElement.textContent = ""; // Limpa a mensagem de erro
       return true;
     }
 }
+
 
 function validarFormulario() {
     const validacoes = [
