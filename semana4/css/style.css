@@ -117,8 +117,8 @@ label {
 
 .group-matricula {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    flex-direction: row-reverse;
+    justify-content: space-between;
     margin: 30px 0px;
 }
 
@@ -131,6 +131,22 @@ label {
     display: flex;
     justify-content: center;
     margin-top: 50px;
+}
+
+.new-opcao {
+    display: column;
+    width: 80%;
+}
+
+.new-opcao .group-area {
+    display: flex;
+    flex-direction: column;
+}
+
+.new-opcao .group-lattes {
+    display: flex;
+    flex-direction: column;
+    margin-top: 12px;
 }
 
 button {
