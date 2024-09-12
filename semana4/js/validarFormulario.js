@@ -37,8 +37,6 @@ function professor() {
     // Limpa o conteúdo existente
     newElement.innerHTML = '';
 
-    // Cria os novos elementos dinamicamente
-
     // Div para Área
     const groupArea = document.createElement('div');
     groupArea.className = 'group-area';
