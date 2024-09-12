@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if(validarFormulario()){
             criarObjeto();
-            alert("Dados Armazenados! ");
+            alert("Objeto Criado! ");
         }
         else{
             console.log("Erro");
