@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('dataNasc').addEventListener('blur', validarDataNasc);
     document.getElementById('telFixo').addEventListener('blur', validarTelFixo);
     document.getElementById('telCel').addEventListener('blur', validarTelCel);
+    document.getElementById('matricula').addEventListener('blur', validarMatricula);
 });
 
 function professor() {
@@ -92,7 +93,6 @@ function aluno() {
     groupCurso.appendChild(input);
     newElement.appendChild(groupCurso);
 }
-
 
 function validarNome() {
     const nome = document.getElementById('nome').value;
@@ -192,11 +192,47 @@ function validarTelCel() {
     return true;
 }
 
+function validarMatricula() {
+    const matriculaInput = document.getElementById('matricula');
+    const matricula = matriculaInput.value.trim(); // Remove espaços em branco no início e no fim
+    const tipoUsuario = document.querySelector('input[name="tipo_usuario"]:checked');
+    const errorElement = document.getElementById('error-matricula');
+    let regexMatricula;
 
+    if (!tipoUsuario) {
+        // Se nenhum tipo de usuário estiver selecionado
+        errorElement.textContent = 'Selecione um tipo de usuário.';
+        errorElement.style.color = 'red';
+        errorElement.style.marginTop = '10px';
+        return false;
+    }
 
+    if (tipoUsuario.value === "professor") {
+        regexMatricula = /^\d{5}$/;
+        if (regexMatricula.test(matricula)) {
+            errorElement.textContent = '';
+            return true;
+        } else {
+            errorElement.textContent = 'Matrícula de professor inválida. Deve conter exatamente 5 dígitos.';
+            errorElement.style.color = 'red';
+            errorElement.style.marginTop = '10px';
+            return false;
+        }
+    } else if (tipoUsuario.value === "aluno") {
+        regexMatricula = /^\d{10}$/;
+        if (regexMatricula.test(matricula)) {
+            errorElement.textContent = '';
+            return true;
+        } else {
+            errorElement.textContent = 'Matrícula de aluno inválida. Deve conter exatamente 10 dígitos.';
+            errorElement.style.color = 'red';
+            errorElement.style.marginTop = '10px';
+            return false;
+        }
+    }
+}
 
-
-
+//essa função contém um vetor com as funções de validações, retorna true se todas funções forem true
 function validarFormulario() {
     const validacoes = [
         validarNome(),
@@ -204,7 +240,7 @@ function validarFormulario() {
         validarDataNasc(),
         validarTelFixo(),
         validarTelCel(),
-
+        validarMatricula()
     ];
 
     return validacoes.every(Boolean); // Somente submeter se todos forem válidos
