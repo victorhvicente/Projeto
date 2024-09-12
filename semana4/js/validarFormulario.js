@@ -23,28 +23,76 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function professor() {
-
     const newElement = document.getElementById('new-opcao');
-    newElement.innerHTML = `
-    <div class="group-area">
-        <label for="area">Área:</label>
-        <input type="text" id="area" placeholder="Digite sua área de atuação" required>
-    </div>
-    <div class="group-lattes">
-        <label for="lattes">Lattes:</label>
-        <input type="text" id="lattes" placeholder="Digite aqui o endereço para seu lattes" required>
-    </div>`;
+    
+    // Limpa o conteúdo existente
+    newElement.innerHTML = '';
+
+    // Cria os novos elementos dinamicamente
+
+    // Div para Área
+    const groupArea = document.createElement('div');
+    groupArea.className = 'group-area';
+
+    const labelArea = document.createElement('label');
+    labelArea.setAttribute('for', 'area');
+    labelArea.textContent = 'Área:';
+
+    const inputArea = document.createElement('input');
+    inputArea.setAttribute('type', 'text');
+    inputArea.setAttribute('id', 'area');
+    inputArea.setAttribute('placeholder', 'Digite sua área de atuação');
+    inputArea.setAttribute('required', '');
+
+    groupArea.appendChild(labelArea);
+    groupArea.appendChild(inputArea);
+
+    // Div para Lattes
+    const groupLattes = document.createElement('div');
+    groupLattes.className = 'group-lattes';
+
+    const labelLattes = document.createElement('label');
+    labelLattes.setAttribute('for', 'lattes');
+    labelLattes.textContent = 'Lattes:';
+
+    const inputLattes = document.createElement('input');
+    inputLattes.setAttribute('type', 'text');
+    inputLattes.setAttribute('id', 'lattes');
+    inputLattes.setAttribute('placeholder', 'Digite aqui o endereço para seu lattes');
+    inputLattes.setAttribute('required', '');
+
+    groupLattes.appendChild(labelLattes);
+    groupLattes.appendChild(inputLattes);
+
+    // Adiciona os novos elementos ao DOM
+    newElement.appendChild(groupArea);
+    newElement.appendChild(groupLattes);
 }
 
-function aluno(){
 
+function aluno() {
     const newElement = document.getElementById('new-opcao');
-    newElement.innerHTML = `
-        <div class="group-curso">
-            <label for="curso">Curso:</label>
-            <input type="text" id="curso" placeholder="Digite seu curso">
-        </div>`;
+    
+    newElement.innerHTML = '';
+
+    const groupCurso = document.createElement('div');
+    groupCurso.className = 'group-curso';
+    
+    const label = document.createElement('label');
+    label.setAttribute('for', 'curso');
+    label.textContent = 'Curso:';
+    
+    const input = document.createElement('input');
+    input.setAttribute('type', 'text');
+    input.setAttribute('id', 'curso');
+    input.setAttribute('placeholder', 'Digite seu curso');
+    input.setAttribute('required', ''); 
+    
+    groupCurso.appendChild(label);
+    groupCurso.appendChild(input);
+    newElement.appendChild(groupCurso);
 }
+
 
 function validarNome() {
     const nome = document.getElementById('nome').value;
@@ -106,10 +154,10 @@ function validarTelFixo() {
     
     // Remove caracteres não numéricos
     const numeros = telFixo.replace(/\D/g, "");
-    
-    // Verifica se o número tem 10 dígitos
+
+    // Verifica se o número contém apenas números e tem 10 dígitos
     if (numeros.length !== 10) {
-        errorElement.textContent = "O telefone fixo deve ter 10 dígitos.";
+        errorElement.textContent = "O telefone fixo deve conter exatamente 10 dígitos numéricos.";
         errorElement.style.color = "red";
         errorElement.style.marginTop = "10px";
         return false;
@@ -121,6 +169,7 @@ function validarTelFixo() {
     return true;
 }
 
+
 function validarTelCel() {
     const telCelInput = document.getElementById('telCel');
     const telCel = telCelInput.value;
@@ -131,7 +180,7 @@ function validarTelCel() {
     
     // Verifica se o número tem 11 dígitos
     if (numeros.length !== 11) {
-        errorElement.textContent = "O telefone celular deve ter 11 dígitos.";
+        errorElement.textContent = "O telefone Celular deve conter exatamente 11 dígitos numéricos.";
         errorElement.style.color = "red";
         errorElement.style.marginTop = "10px";
         return false;
@@ -144,13 +193,18 @@ function validarTelCel() {
 }
 
 
+
+
+
+
 function validarFormulario() {
     const validacoes = [
         validarNome(),
         validarEmail(),
         validarDataNasc(),
         validarTelFixo(),
-        validarTelCel()
+        validarTelCel(),
+
     ];
 
     return validacoes.every(Boolean); // Somente submeter se todos forem válidos
