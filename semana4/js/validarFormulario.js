@@ -5,8 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('aluno').addEventListener('click', aluno);
 
     document.getElementById('submit').addEventListener('click', (event) => {
+
         if(validarFormulario()){
-            console.log("Tudo OK");
+            criarObjeto();
+            alert("Dados Armazenados! ");
         }
         else{
             console.log("Erro");
@@ -222,7 +224,8 @@ function validarMatricula() {
             errorElement.style.marginTop = '10px';
             return false;
         }
-    } else if (tipoUsuario.value === "aluno") {
+    } 
+    else if (tipoUsuario.value === "aluno") {
         regexMatricula = /^\d{10}$/;
         if (regexMatricula.test(matricula)) {
             errorElement.textContent = '';
