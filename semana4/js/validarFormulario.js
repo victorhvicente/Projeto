@@ -12,9 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log("Erro");
             event.preventDefault(); // Impede o envio do formulário se as validações falharem
         }
-        
     })
-   
+
+    document.getElementById('redefinir').addEventListener('click', () => {
+        const formulario = document.getElementById('formulario');
+        formulario.reset(); // Reseta todos os campos do formulário
+    });
+
+    // Adicionar eventos 'blur' para cada campo e chamando as funções
+
     document.getElementById('nome').addEventListener('blur', validarNome);
     document.getElementById('email').addEventListener('blur', validarEmail);
     document.getElementById('dataNasc').addEventListener('blur', validarDataNasc);
@@ -69,7 +75,6 @@ function professor() {
     newElement.appendChild(groupArea);
     newElement.appendChild(groupLattes);
 }
-
 
 function aluno() {
     const newElement = document.getElementById('new-opcao');
@@ -145,7 +150,6 @@ function validarDataNasc(){
         return true;
     }
 }
-
 
 function validarTelFixo() {
     const telFixoInput = document.getElementById('telFixo');
