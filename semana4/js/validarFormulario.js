@@ -173,7 +173,6 @@ function validarTelFixo() {
     return true;
 }
 
-
 function validarTelCel() {
     const telCelInput = document.getElementById('telCel');
     const telCel = telCelInput.value;
