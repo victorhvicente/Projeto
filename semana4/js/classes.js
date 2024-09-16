@@ -7,6 +7,12 @@ class Pessoa {
     matricula;
 
     constructor(nome, email, dataNascimento, telefoneFixo, telefoneCelular, matricula) {
+
+        //Uso do new.target para verificar se a classe base está sendo instanciada diretamente.
+        if(new.target === Pessoa){
+            throw new Error('Não é possível instânciar a super classe Pessoa');
+        }
+        
         this.nome = nome;
         this.email = email;
         this.dataNascimento = dataNascimento;
@@ -37,6 +43,14 @@ class Aluno extends Pessoa {
     }
 }
 
+try {
+    // Tentativa de instanciar diretamente a classe Pessoa
+    const pessoa = new Pessoa('João', 'joao@example.com', '01/01/2000', '(11)1234-5678', '(11)9876-5432', '12345');
+} catch (error) {
+    console.log(error.message); // Deve exibir "Não é possível instanciar a super classe Pessoa."
+}
+
+
 function criarObjeto() {
     if (!validarFormulario()) {
         return;
@@ -49,6 +63,7 @@ function criarObjeto() {
     const telCel = document.getElementById('telCel').value;
     const matricula = document.getElementById('matricula').value;
 
+    
     const tipoPessoa = document.querySelector('input[name="tipo_usuario"]:checked').value;
     let pessoa;
 
@@ -56,6 +71,7 @@ function criarObjeto() {
         const area = document.getElementById('area').value;
         const lattes = document.getElementById('lattes').value;
         pessoa = new Professor(nome, email, dataNasc, telFixo, telCel, matricula, area, lattes);
+
     } else if (tipoPessoa === 'aluno') {
         const curso = document.getElementById('curso').value;
         pessoa = new Aluno(nome, email, dataNasc, telFixo, telCel, matricula, curso);
