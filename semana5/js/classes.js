@@ -29,11 +29,34 @@ class GerenciadorDeTarefas {
         const tarefas = document.getElementById('listaTarefas');
         tarefas.innerHTML = "";
 
-        const lista = document.createElement('ul');
-
         this._tarefas.forEach((tarefa, index) =>{
 
+            const btnDetalhes = document.createElement('button');
+            btnDetalhes.addEventListener('click', () => {
+
+            })
             
         })
+    }
+
+    marcarComoConcluida(index) {
+        this._tarefas[index].concluir();
+    }
+
+    removerTarefa(index){
+        this._tarefas[index].splice(index, 1);
+    }
+
+    visualizarDetalhes(index){  
+        const detalhes = document.getElementById('detalhes-tarefa');
+
+        if(this._tarefas[index]){
+            const p = document.createElement('p');
+            const conteudo = this._tarefas[index].detalhes();
+
+            p.textContent = conteudo;
+
+            detalhes.appendChild(p);
+        }
     }
 }
