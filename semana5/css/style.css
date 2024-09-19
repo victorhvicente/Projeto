@@ -72,9 +72,6 @@ ul {
     width: 100%;
 }
 
-p {
-    line-height: 2.5; /* Ajuste o valor conforme necessário */
-}
 
 .linha {
     display: flex;
@@ -136,4 +133,8 @@ p {
 
 .btn-remover:hover {
     background: #da190b;
+}
+
+p {
+    line-height: 2.5; /* Ajuste o valor conforme necessário */
 }
