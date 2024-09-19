@@ -47,6 +47,10 @@ input[type='text'], button[type='submit'] {
 }
 
 button {
+      display: flex;
+    justify-content: center; 
+    align-items: center;  
+    text-align: center;      
     height: 35px;
     padding-left: 15px;
     box-sizing: border-box;
@@ -61,10 +65,15 @@ button:hover {
 
 ul {
     display: flex;
+    flex-direction: column;
     justify-self: center;
     align-items: center;
     list-style-type: none;
     width: 100%;
+}
+
+p {
+    line-height: 2.5; /* Ajuste o valor conforme necessário */
 }
 
 .linha {
@@ -74,6 +83,13 @@ ul {
     box-sizing: border-box;
     padding: 20px;
     width: 100%;
+}
+
+.linha .conteudo {
+    flex: 1;
+    margin-right: 20px;
+    overflow: hidden; 
+    white-space: nowrap;
 }
 
 .concluida {

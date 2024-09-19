@@ -51,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
                 });
 
-
                 const btnRemover = document.createElement('button');
                 btnRemover.textContent = 'Remover';
                 btnRemover.classList.add('btn-remover');
@@ -73,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
             const tarefa = this._tarefas[index];
             const p = document.createElement('p');
-            p.textContent = `Nome: ${tarefa.nome}, Descrição: ${tarefa.descricao}, Status: ${tarefa.status ? 'Concluída' : 'Pendente'}`;
+            p.innerHTML = `Nome: ${tarefa.nome}<br>Descrição: ${tarefa.descricao}<br>Status: ${tarefa.status}`;
             
             detalhes.appendChild(p);
         }
