@@ -21,7 +21,7 @@ form {
     align-items: center;
     width: 40%;
     border: 1px solid rgb(161, 161, 161);
-    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5); /* sombra ao redor da div */
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
     padding: 20px;
 }
 
@@ -33,13 +33,13 @@ input[type='text'], button[type='submit'] {
     border-radius: 8px;
 }
 
-#nomeTarefa {
+#nome {
     height: 30px;
     padding-left: 15px;
     box-sizing: border-box;
 }
 
-#descricaoTarefa {
+#descricao {
     height: 70px;
     padding-bottom: 20px;
     padding-left: 15px;
@@ -50,7 +50,74 @@ button {
     height: 35px;
     padding-left: 15px;
     box-sizing: border-box;
-    background: #008000;
+    background: #4CAF50; 
     color: #ffff;
     font-size: 14px;
+}
+
+button:hover {
+    background: #45a049; 
+}
+
+ul {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    list-style-type: none;
+    width: 100%;
+}
+
+.linha {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 20px;
+    width: 100%;
+}
+
+.concluida {
+    text-decoration: line-through;
+    color: green; 
+}
+
+.btn-detalhes {
+    background: #4CAF50; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 20px;
+    width: 120px;
+}
+
+.btn-detalhes:hover {
+    background: #45a049; 
+}
+
+
+.btn-concluir {
+    background: #2196F3; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 20px;
+    width: 120px;
+}
+
+.btn-concluir:hover {
+    background-color: #0b7dda; 
+}
+
+
+.btn-remover {
+    background: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 20px;
+    width: 120px;
+}
+
+.btn-remover:hover {
+    background: #da190b;
 }

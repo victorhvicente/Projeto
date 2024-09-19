@@ -6,70 +6,105 @@ document.addEventListener('DOMContentLoaded', () => {
             this.descricao = descricao;
             this.status = 'pendente';
         }
-
+    
         concluir() {
             this.status = 'concluída';
         }
-
+    
         detalhes() {
             return `Nome: ${this.nome}, Descrição: ${this.descricao}, Status: ${this.status}`;
         }
     }
-
+    
     class GerenciadorDeTarefas {
         _tarefas = [];
-
+    
         adicionarTarefa(tarefa) {
             this._tarefas.push(tarefa);
-            this.listarTarefas(); // Atualiza a lista após adicionar uma nova tarefa
+            this.listarTarefas();
         }
-
+    
         listarTarefas() {
             const tarefas = document.getElementById('listaTarefas');
-            tarefas.innerHTML = ""; // Limpa a lista existente
-
+            tarefas.innerHTML = "";
+    
             this._tarefas.forEach((tarefa, index) => {
                 const li = document.createElement('li');
                 li.textContent = tarefa.nome;
-
+                li.classList.add('linha');
+    
                 const btnDetalhes = document.createElement('button');
                 btnDetalhes.textContent = 'Detalhes';
+                btnDetalhes.classList.add('btn-detalhes');
+
                 btnDetalhes.addEventListener('click', () => {
                     this.visualizarDetalhes(index);
+                    
+                });
+    
+                const btnConcluir = document.createElement('button');
+                btnConcluir.textContent = 'Concluir';
+                btnConcluir.classList.add('btn-concluir');
+
+                btnConcluir.addEventListener('click', () => {
+                    this.marcarComoConcluida(index);
+    
                 });
 
+
+                const btnRemover = document.createElement('button');
+                btnRemover.textContent = 'Remover';
+                btnRemover.classList.add('btn-remover');
+
+                btnRemover.addEventListener('click', () => {
+                    this.removerTarefa(index);
+                });
+    
                 li.appendChild(btnDetalhes);
+                li.appendChild(btnConcluir);
+                li.appendChild(btnRemover);
                 tarefas.appendChild(li);
             });
         }
-
+    
         visualizarDetalhes(index) {
-            const detalhes = document.getElementById('datalhes-tarefa');
-                detalhes.innerHTML = ""; 
-
-            if (this._tarefas[index]) {
-                const tarefa = this._tarefas[index];
-                const p = document.createElement('p');
-                const conteudo = tarefa.detalhes();
-
-                p.textContent = conteudo;
-                detalhes.appendChild(p); 
-            }
+            const detalhes = document.getElementById('detalhes-tarefa');
+            detalhes.innerHTML = ""; 
+        
+            const tarefa = this._tarefas[index];
+            const p = document.createElement('p');
+            p.textContent = `Nome: ${tarefa.nome}, Descrição: ${tarefa.descricao}, Status: ${tarefa.status ? 'Concluída' : 'Pendente'}`;
+            
+            detalhes.appendChild(p);
+        }
+    
+        marcarComoConcluida(index) {
+            this._tarefas[index].concluir();
+        }
+    
+        removerTarefa(index) {
+            this._tarefas.splice(index, 1);
+            this.listarTarefas();
         }
     }
-
+    
+    // Inicializa o gerenciador
     const gerenciador = new GerenciadorDeTarefas();
-
-    document.getElementById("tarefa").addEventListener("submit", function (e) {
+    
+    // Formulário de submissão de tarefa
+    document.getElementById("tarefaForm").addEventListener("submit", function (e) {
         e.preventDefault();
-
-        const nome = document.getElementById("nomeTarefa").value;
-        const descricao = document.getElementById("descricaoTarefa").value;
-
+    
+        const nome = document.getElementById("nome").value;
+        const descricao = document.getElementById("descricao").value;
+    
         const novaTarefa = new Tarefa(nome, descricao);
         gerenciador.adicionarTarefa(novaTarefa);
-
-        document.getElementById("nomeTarefa").value = "";
-        document.getElementById("descricaoTarefa").value = "";
+    
+        document.getElementById("nome").value = "";
+        document.getElementById("descricao").value = "";
     });
-});
+})
+
+
+

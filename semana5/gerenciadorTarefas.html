@@ -8,13 +8,16 @@
     <title>Gerenciador de Tarefas</title>
 </head>
 <body>
-    <form id="tarefa">
+
+    <form id="tarefaForm">
         <h2>Gerenciador de Tarefas</h2>
-        <input type="text" id="nomeTarefa" placeholder="Nome da Tarefa">
-        <input type="text" id="descricaoTarefa" placeholder="Descrição da Tarefa">
-        <button type="submit" id="adicionar">Adicionar Tarefa</button>
+        <input type="text" id="nome" placeholder="Nome da tarefa" required>
+        <input type="text" id="descricao" placeholder="Descrição da tarefa" required>
+        <button type="submit">Adicionar Tarefa</button>
         <ul id="listaTarefas"></ul>
     </form>
-    <div id="datalhes-tarefa"></div>
+
+    <div id="detalhes-tarefa"></div>
+    
 </body>
 </html>
