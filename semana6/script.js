@@ -128,8 +128,37 @@ function contador() {
     divBotoesHomem.appendChild(botaoDecrementarHomem);
     divHomem.appendChild(divBotoesHomem);
 
+    const divTotalHomem = document.createElement('div');
+    divTotalHomem.style.display = 'flex';
+    divTotalHomem.style.justifyContent = 'center';
+    divTotalHomem.style.alignItems = 'center';
+    divTotalHomem.style.width = '120px';
+    divTotalHomem.style.height = '60px';
+    divTotalHomem.style.background = 'red';
+    divTotalHomem.style.marginTop = '15px';
+    divTotalHomem.style.borderRadius = '15px';
+
+    const resultadoTotalHomem = document.createTextNode('0');
+
+    divTotalHomem.appendChild(resultadoTotalHomem);
+    divHomem.appendChild(divTotalHomem);
+
+    let contadorHomem = 0;
+
+    botaoIncrementarHomem.addEventListener('click', () => {
+        contadorHomem++;
+        resultadoTotalHomem.nodeValue = contadorHomem;
+    });
+
+    botaoDecrementarHomem.addEventListener('click', () => {
+        contadorHomem--;
+        resultadoTotalHomem.nodeValue = contadorHomem;
+    });
+
     // ---- Fim DIV homem ---- //
 
+
+    // ---- Início DIV mulher ---- //
 
     const divMulher = document.createElement('div');
     divMulher.style.width = '180px';
@@ -163,12 +192,29 @@ function contador() {
     botaoIncrementarMulher.appendChild(imagemIncrementarMulher);
     botoesMulher.appendChild(botaoIncrementarMulher);
 
-    
+    const botaoDecrementarMulher = document.createElement('button');
+    botaoDecrementarMulher.style.border = 'none';
+    botaoDecrementarMulher.style.background = 'none';
+    botaoDecrementarMulher.style.cursor = 'pointer';
 
-
-
-
+    const imagemDecrementarMulher = document.createElement('img');
+    imagemDecrementarMulher.src = 'img/menos.png';
+    imagemDecrementarMulher.style.width = '30px';
+    imagemDecrementarMulher.style.height = '30px';
+    botaoDecrementarMulher.appendChild(imagemDecrementarMulher);
+    botoesMulher.appendChild(botaoDecrementarMulher);
     divMulher.appendChild(botoesMulher);
+
+    const divTotalMulher = document.createElement('div');
+    divTotalMulher.style.width = '120px';
+    divTotalMulher.style.height = '60px';
+    divTotalMulher.style.background = 'red';
+    divTotalMulher.style.marginTop = '15px';
+    divTotalMulher.style.borderRadius = '15px';
+    divMulher.appendChild(divTotalMulher);
+
+    // ---- Fim DIV mulher ---- //
+
 
 
     divHomemMulher.appendChild(divHomem);
