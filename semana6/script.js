@@ -146,6 +146,8 @@ function contador() {
     divTotalHomem.appendChild(resultadoTotalHomemP);
     divHomem.appendChild(divTotalHomem);
 
+    // Funcionalidades dos botões de incremento e decremento para Homem
+
     let contadorHomem = 0;
 
     botaoIncrementarHomem.addEventListener('click', () => {
@@ -154,8 +156,11 @@ function contador() {
     });
 
     botaoDecrementarHomem.addEventListener('click', () => {
-        contadorHomem--;
-        resultadoTotalHomem.nodeValue = contadorHomem;
+        if(contadorHomem > 0){
+            contadorHomem--;
+            resultadoTotalHomem.nodeValue = contadorHomem;
+        }
+        
     });
 
     // ---- Fim DIV homem ---- //
@@ -209,12 +214,42 @@ function contador() {
     divMulher.appendChild(botoesMulher);
 
     const divTotalMulher = document.createElement('div');
+    divTotalMulher.style.display = 'flex';
+    divTotalMulher.style.justifyContent = 'center';
+    divTotalMulher.style.alignItems = 'center';
     divTotalMulher.style.width = '120px';
     divTotalMulher.style.height = '60px';
     divTotalMulher.style.background = 'red';
     divTotalMulher.style.marginTop = '15px';
     divTotalMulher.style.borderRadius = '15px';
+
+    const resultadoTotalMulherP = document.createElement('p');
+    const resultadoTotalMulher = document.createTextNode('0');
+
+    resultadoTotalMulherP.style.fontSize = '40px';
+
+    resultadoTotalMulherP.appendChild(resultadoTotalMulher);
+
+    divTotalMulher.appendChild(resultadoTotalMulherP);
     divMulher.appendChild(divTotalMulher);
+
+    // Funcionalidades dos botões de incremento e decremento para Mulher
+
+    let contadorMulher = 0;
+
+    botaoIncrementarMulher.addEventListener('click', () => {
+        contadorMulher++;
+
+        resultadoTotalMulher.nodeValue = contadorMulher;
+    });
+
+    botaoDecrementarMulher.addEventListener('click', () => {
+        if(contadorMulher > 0){
+            contadorMulher--;
+
+            resultadoTotalMulher.nodeValue = contadorMulher;
+        }
+    });
 
     // ---- Fim DIV mulher ---- //
 
