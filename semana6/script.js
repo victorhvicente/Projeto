@@ -75,10 +75,13 @@ function contador() {
 
     // Div para Homem/Mulher
     const divHomemMulher = document.createElement('div');
+    divHomemMulher.style.display = 'flex';
     divHomemMulher.style.width = '100%';
     divHomemMulher.style.height = '250px';
     divHomemMulher.style.background = 'red';
     divHomemMulher.style.marginTop = '20px';
+
+    // ---- Início DIV homem ---- //
 
     const divHomem = document.createElement('div');
     divHomem.style.width = '180px';
@@ -117,16 +120,59 @@ function contador() {
 
     const imagemDecrementarHomem = document.createElement('img');
     imagemDecrementarHomem.src = 'img/menos.png';
-    imagemDecrementarHomem.style.width = '40px';
-    imagemDecrementarHomem.style.height = '40px';
+    imagemDecrementarHomem.style.width = '30px';
+    imagemDecrementarHomem.style.height = '30px';
     botaoDecrementarHomem.appendChild(imagemDecrementarHomem);
 
     divBotoesHomem.appendChild(botaoIncrementarHomem);
     divBotoesHomem.appendChild(botaoDecrementarHomem);
     divHomem.appendChild(divBotoesHomem);
 
+    // ---- Fim DIV homem ---- //
+
+
+    const divMulher = document.createElement('div');
+    divMulher.style.width = '180px';
+    divMulher.style.height = 'auto';
+    divMulher.style.background = 'pink';
+    divMulher.style.display = 'flex';
+    divMulher.style.flexDirection = 'column';
+    divMulher.style.justifyContent = 'center';
+    divMulher.style.alignItems = 'center';
+
+    const imagemMulher = document.createElement('img');
+    imagemMulher.src = 'img/mulher.png';
+    imagemMulher.style.width = '100px';
+    imagemMulher.style.height = '100px';
+    divMulher.appendChild(imagemMulher);
+
+    const botoesMulher = document.createElement('div');
+    botoesMulher.style.display = 'flex';
+    botoesMulher.style.marginTop = '15px';
+
+    const botaoIncrementarMulher = document.createElement('button');
+    botaoIncrementarMulher.style.border = 'none';
+    botaoIncrementarMulher.style.background = 'none';
+    botaoIncrementarMulher.style.cursor = 'pointer';
+
+    const imagemIncrementarMulher = document.createElement('img');
+    imagemIncrementarMulher.src = 'img/mais.png';
+    imagemIncrementarMulher.style.width = '40px';
+    imagemIncrementarMulher.style.height = '40px';
+    
+    botaoIncrementarMulher.appendChild(imagemIncrementarMulher);
+    botoesMulher.appendChild(botaoIncrementarMulher);
+
+    
+
+
+
+
+    divMulher.appendChild(botoesMulher);
+
 
     divHomemMulher.appendChild(divHomem);
+    divHomemMulher.appendChild(divMulher);
 
 
 
