@@ -138,9 +138,12 @@ function contador() {
     divTotalHomem.style.marginTop = '15px';
     divTotalHomem.style.borderRadius = '15px';
 
+    const resultadoTotalHomemP = document.createElement('p');
     const resultadoTotalHomem = document.createTextNode('0');
+    resultadoTotalHomemP.appendChild(resultadoTotalHomem);
+    resultadoTotalHomemP.style.fontSize = '40px';
 
-    divTotalHomem.appendChild(resultadoTotalHomem);
+    divTotalHomem.appendChild(resultadoTotalHomemP);
     divHomem.appendChild(divTotalHomem);
 
     let contadorHomem = 0;
