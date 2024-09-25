@@ -53,20 +53,27 @@ function contador() {
 
     divCampoResultado.appendChild(resultadoTotalP);
 
-    const botaoRecarregar = document.createElement('button');
-    botaoRecarregar.style.border = 'none';
-    botaoRecarregar.style.background = 'none';
-    botaoRecarregar.style.cursor = 'pointer';
-    botaoRecarregar.style.margin = '15px 20px';
-    botaoRecarregar.setAttribute('type', 'reset');
-    botaoRecarregar.setAttribute('id', 'botaoRecarregar');
+    const botaoReset = document.createElement('button');
+    botaoReset.style.border = 'none';
+    botaoReset.style.background = 'none';
+    botaoReset.style.cursor = 'pointer';
+    botaoReset.style.margin = '15px 20px';
+    botaoReset.setAttribute('type', 'reset');
+    botaoReset.setAttribute('id', 'botaoReset');
 
-    const imagemRecarregar = document.createElement('img');
-    imagemRecarregar.src = 'img/recarregar.png';
-    imagemRecarregar.style.width = '30px';
-    imagemRecarregar.style.height = '30px';
+    const imagemReset = document.createElement('img');
+    imagemReset.src = 'img/recarregar.png';
+    imagemReset.style.width = '30px';
+    imagemReset.style.height = '30px';
 
-    botaoRecarregar.appendChild(imagemRecarregar);
+    botaoReset.appendChild(imagemReset);
+
+    // adicionando funcionalidade para o botao reset
+    botaoReset.addEventListener('click', () => {
+        resultadoTotal.nodeValue = 0;
+        resultadoTotalHomem.nodeValue = 0;
+        resultadoTotalMulher.nodeValue = 0;
+    });
 
     // Agrupando a divTotal e o botão na mesma linha
     const divTotalRecarregar = document.createElement('div');
@@ -76,7 +83,7 @@ function contador() {
     divTotalRecarregar.style.justifyContent = 'space-between';
     divTotalRecarregar.style.alignItems = 'flex-start';
     divTotalRecarregar.appendChild(divTotal);
-    divTotalRecarregar.appendChild(botaoRecarregar);
+    divTotalRecarregar.appendChild(botaoReset);
 
     // Div para Homem/Mulher
     const divHomemMulher = document.createElement('div');
@@ -272,10 +279,6 @@ function contador() {
 
     divHomemMulher.appendChild(divHomem);
     divHomemMulher.appendChild(divMulher);
-
-
-
-
 
     // Estrutura do DOM
     h1.appendChild(textoTitulo);
