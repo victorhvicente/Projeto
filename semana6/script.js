@@ -70,9 +70,14 @@ function contador() {
 
     // adicionando funcionalidade para o botao reset
     botaoReset.addEventListener('click', () => {
-        resultadoTotal.nodeValue = 0;
-        resultadoTotalHomem.nodeValue = 0;
-        resultadoTotalMulher.nodeValue = 0;
+        // Resetando os contadores
+        contadorHomem = 0;
+        contadorMulher = 0;
+
+        resultadoTotalHomem.nodeValue = contadorHomem;
+        resultadoTotalMulher.nodeValue = contadorMulher;
+
+        atualizarQuantidadeTotal();
     });
 
     // Agrupando a divTotal e o botão na mesma linha
