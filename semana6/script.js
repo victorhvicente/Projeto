@@ -33,9 +33,10 @@ function contador() {
     divTotal.style.flexDirection = 'column';
     divTotal.style.alignItems = 'center';
     divTotal.style.justifyContent = 'center';
+    divTotal.style.paddingLeft = '80px';
 
     // Ajustes na divCampoResultado
-    divCampoResultado.style.height = '20px';
+    divCampoResultado.style.height = '30px';
     divCampoResultado.style.width = '100px';
     divCampoResultado.style.border = '2px solid black';
     divCampoResultado.style.borderRadius = '10px';
@@ -44,10 +45,14 @@ function contador() {
     divCampoResultado.style.alignItems = 'center';
     divCampoResultado.style.justifyContent = 'center';
 
-    const textoResultado = document.createTextNode('Resultado: 0');
-    divCampoResultado.appendChild(textoResultado);
+    const resultadoTotalP = document.createElement('p');
+    const resultadoTotal = document.createTextNode('0');
+    resultadoTotalP.style.fontSize = '40px';
 
-    // Adicionando o botão com uma imagem de recarregamento da página
+    resultadoTotalP.appendChild(resultadoTotal);
+
+    divCampoResultado.appendChild(resultadoTotalP);
+
     const botaoRecarregar = document.createElement('button');
     botaoRecarregar.style.border = 'none';
     botaoRecarregar.style.background = 'none';
@@ -99,6 +104,7 @@ function contador() {
     divHomem.appendChild(imagemHomem);
 
     const divBotoesHomem = document.createElement('div');
+    divBotoesHomem.style.display = 'flex';
     divBotoesHomem.style.marginTop = '15px';
 
     const botaoIncrementarHomem = document.createElement('button');
@@ -153,12 +159,14 @@ function contador() {
     botaoIncrementarHomem.addEventListener('click', () => {
         contadorHomem++;
         resultadoTotalHomem.nodeValue = contadorHomem;
+        atualizarQuantidadeTotal();
     });
 
     botaoDecrementarHomem.addEventListener('click', () => {
         if(contadorHomem > 0){
             contadorHomem--;
             resultadoTotalHomem.nodeValue = contadorHomem;
+            atualizarQuantidadeTotal();
         }
         
     });
@@ -239,21 +247,28 @@ function contador() {
 
     botaoIncrementarMulher.addEventListener('click', () => {
         contadorMulher++;
-
         resultadoTotalMulher.nodeValue = contadorMulher;
+        atualizarQuantidadeTotal();
     });
 
     botaoDecrementarMulher.addEventListener('click', () => {
         if(contadorMulher > 0){
             contadorMulher--;
-
             resultadoTotalMulher.nodeValue = contadorMulher;
+            atualizarQuantidadeTotal();
         }
     });
 
     // ---- Fim DIV mulher ---- //
 
+    // Criado uma função para somar os dois contadores Homem e Mulher
+    // e atualiza automaticamente o valor total
 
+    function atualizarQuantidadeTotal(){
+        let somaTotal = contadorHomem + contadorMulher;
+        resultadoTotal.nodeValue = somaTotal;    
+    }
+   
 
     divHomemMulher.appendChild(divHomem);
     divHomemMulher.appendChild(divMulher);
