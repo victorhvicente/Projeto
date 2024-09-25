@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.justifyContent = 'center';
     document.body.style.alignItems = 'center';
     document.body.style.height = '100vh';
+    document.body.style.fontFamily = 'Helvetica';
 
     contador();
 });
@@ -83,7 +84,6 @@ function contador() {
     // Agrupando a divTotal e o botão na mesma linha
     const divTotalRecarregar = document.createElement('div');
     divTotalRecarregar.style.display = 'flex';
-    divTotalRecarregar.style.background = 'red';
     divTotalRecarregar.style.width = '100%';
     divTotalRecarregar.style.justifyContent = 'space-between';
     divTotalRecarregar.style.alignItems = 'flex-start';
@@ -94,20 +94,20 @@ function contador() {
     const divHomemMulher = document.createElement('div');
     divHomemMulher.style.display = 'flex';
     divHomemMulher.style.width = '100%';
-    divHomemMulher.style.height = '250px';
-    divHomemMulher.style.background = 'red';
+    divHomemMulher.style.height = 'auto';
     divHomemMulher.style.marginTop = '20px';
 
     // ---- Início DIV homem ---- //
 
     const divHomem = document.createElement('div');
-    divHomem.style.width = '180px';
-    divHomem.style.height = 'auto';
-    divHomem.style.background = 'green';
-    divHomem.style.display = 'flex';
     divHomem.style.flexDirection = 'column';
     divHomem.style.justifyContent = 'center';
     divHomem.style.alignItems = 'center';
+    divHomem.style.width = '180px';
+    divHomem.style.height = '320px';
+    divHomem.style.display = 'flex';
+    divHomem.style.boxSizing = 'border-box';
+    divHomem.style.gap = '0px'
 
     const imagemHomem = document.createElement('img');
     imagemHomem.src = 'img/homem.png';
@@ -146,15 +146,20 @@ function contador() {
     divBotoesHomem.appendChild(botaoDecrementarHomem);
     divHomem.appendChild(divBotoesHomem);
 
+    const homemH2 = document.createElement('h2');
+    const homem = document.createTextNode('Homens');
+
+    homemH2.appendChild(homem);
+    divHomem.appendChild(homemH2);
+
     const divTotalHomem = document.createElement('div');
     divTotalHomem.style.display = 'flex';
     divTotalHomem.style.justifyContent = 'center';
     divTotalHomem.style.alignItems = 'center';
     divTotalHomem.style.width = '120px';
     divTotalHomem.style.height = '60px';
-    divTotalHomem.style.background = 'red';
-    divTotalHomem.style.marginTop = '15px';
-    divTotalHomem.style.borderRadius = '15px';
+    divTotalHomem.style.border = '2px solid black';
+    divTotalHomem.style.borderRadius = '10px';
 
     const resultadoTotalHomemP = document.createElement('p');
     const resultadoTotalHomem = document.createTextNode('0');
@@ -189,18 +194,19 @@ function contador() {
     // ---- Início DIV mulher ---- //
 
     const divMulher = document.createElement('div');
-    divMulher.style.width = '180px';
-    divMulher.style.height = 'auto';
-    divMulher.style.background = 'pink';
     divMulher.style.display = 'flex';
     divMulher.style.flexDirection = 'column';
     divMulher.style.justifyContent = 'center';
     divMulher.style.alignItems = 'center';
+    divMulher.style.width = '180px';
+    divMulher.style.height = '320px';
+    divMulher.style.boxSizing = 'border-box';
+    divMulher.style.gap = '0px';
 
     const imagemMulher = document.createElement('img');
     imagemMulher.src = 'img/mulher.png';
     imagemMulher.style.width = '100px';
-    imagemMulher.style.height = '100px';
+    imagemMulher.style.height = 'auto';
     divMulher.appendChild(imagemMulher);
 
     const botoesMulher = document.createElement('div');
@@ -233,15 +239,21 @@ function contador() {
     botoesMulher.appendChild(botaoDecrementarMulher);
     divMulher.appendChild(botoesMulher);
 
+    const mulherH2 = document.createElement('h2');
+    const mulher = document.createTextNode('Mulheres');
+
+    mulherH2.appendChild(mulher);
+    divMulher.appendChild(mulherH2);
+
     const divTotalMulher = document.createElement('div');
     divTotalMulher.style.display = 'flex';
     divTotalMulher.style.justifyContent = 'center';
     divTotalMulher.style.alignItems = 'center';
     divTotalMulher.style.width = '120px';
     divTotalMulher.style.height = '60px';
-    divTotalMulher.style.background = 'red';
-    divTotalMulher.style.marginTop = '15px';
-    divTotalMulher.style.borderRadius = '15px';
+    divTotalMulher.style.border = '2px solid black';
+    divTotalMulher.style.borderRadius = '10px';
+
 
     const resultadoTotalMulherP = document.createElement('p');
     const resultadoTotalMulher = document.createTextNode('0');
@@ -272,6 +284,7 @@ function contador() {
     });
 
     // ---- Fim DIV mulher ---- //
+
 
     // Criado uma função para somar os dois contadores Homem e Mulher
     // e atualiza automaticamente o valor total
