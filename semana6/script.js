@@ -46,6 +46,10 @@ function contador() {
     divCampoResultado.style.alignItems = 'center';
     divCampoResultado.style.justifyContent = 'center';
 
+    h1.appendChild(textoTitulo);
+    divTotal.appendChild(h1);
+    divTotal.appendChild(divCampoResultado);
+
     const resultadoTotalP = document.createElement('p');
     const resultadoTotal = document.createTextNode('0');
     resultadoTotalP.style.fontSize = '40px';
@@ -297,15 +301,10 @@ function contador() {
 
     divHomemMulher.appendChild(divHomem);
     divHomemMulher.appendChild(divMulher);
-
-    // Estrutura do DOM
-    h1.appendChild(textoTitulo);
-    divTotal.appendChild(h1);
-    divTotal.appendChild(divCampoResultado);
-
+    
     // Adicionando ao contadorDiv
-    contadorDiv.appendChild(divTotalRecarregar); // Adiciona a linha com divTotal e botão
-    contadorDiv.appendChild(divHomemMulher); // Adiciona a divHomemMulher abaixo
+    contadorDiv.appendChild(divTotalRecarregar);
+    contadorDiv.appendChild(divHomemMulher);
 }
 
 
